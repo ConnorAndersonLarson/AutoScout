@@ -2,6 +2,7 @@
   "name": "autoscout",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://age-of-empires-2-api.herokuapp.com/api/v1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
