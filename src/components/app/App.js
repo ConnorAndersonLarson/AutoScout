@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import { Switch, Route} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js'
 import './App.css';
 
@@ -25,7 +26,14 @@ class App extends Component {
           <h1 className="title">AutoScout</h1>
         </header>
         <main>
-          {console.log(this.state.civs)}
+        <Switch>
+          <Route exact path ="/">
+            <section className="info-column">
+            </section>
+            <section className="civCase">
+            </section>
+          </Route>
+        </Switch>
         </main>
       </>
     )
