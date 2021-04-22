@@ -1,5 +1,5 @@
 import React from 'react';
-import './CivStats.css';
+import './CivCrest.css';
 
 const CivCrest = ({id, exp, name, army}) => {
 
@@ -9,3 +9,5 @@ const CivCrest = ({id, exp, name, army}) => {
     </div>
   )
 }
+
+export default CivCrest;

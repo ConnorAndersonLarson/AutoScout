@@ -1,4 +1,5 @@
 import React from 'react';
+import CivCrest from '../civCrest/CivCrest';
 import './Gallery.css';
 
 const Gallery = ({civs}) => {
@@ -19,3 +20,5 @@ const Gallery = ({civs}) => {
     </div>
   )
 }
+
+export default Gallery;

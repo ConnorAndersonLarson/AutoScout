@@ -9,8 +9,32 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  grid-area: header;
 }
+
+.main-page {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 75px 20% 20% 20% 20%;
+  grid-template-areas:
+    "header header"
+    "sidebar gallery"
+    "sidebar gallery"
+    "sidebar gallery"
+    "sidebar gallery"
+}
+
 
 .title {
   padding-left: 5%;
+}
+
+.info-column {
+  grid-area: sidebar;
+  width: 235px;
+
+}
+
+.civCase {
+  grid-area: gallery;
 }
