@@ -2,6 +2,15 @@
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "sidebar gallery"
+}
+
 .header {
   background-color: #D0B385;
   width: 100%;
@@ -14,14 +23,11 @@
 
 .main-page {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 75px 20% 20% 20% 20%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px auto;
   grid-template-areas:
-    "header header"
-    "sidebar gallery"
-    "sidebar gallery"
-    "sidebar gallery"
-    "sidebar gallery"
+    "header"
+    "main"
 }
 
 
@@ -30,11 +36,16 @@
 }
 
 .info-column {
+  background-color: #D0B385;
+  border: solid 5px #8A4F11;
   grid-area: sidebar;
   width: 235px;
+  height: 100%;
 
 }
 
 .civCase {
   grid-area: gallery;
+  display: flex;
+  flex-wrap: wrap;
 }

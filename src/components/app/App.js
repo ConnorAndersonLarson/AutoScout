@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Switch, Route} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js'
 import Gallery from '../gallery/Gallery';
+import CivInfo from '../civInfo/CivInfo';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       civs: [],
+      civ: {},
       error: ''
     }
   }
@@ -30,7 +32,13 @@ class App extends Component {
         <Switch>
           <Route exact path ="/">
               <section className="info-column">
-                <h2>Civ Data</h2>
+                <div>
+                  {this.state.civ && <CivInfo civ={this.state.civ} /> }
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
               </section>
               <section className="civCase">
                 <Gallery civs={this.state.civs} />
