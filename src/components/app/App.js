@@ -31,6 +31,7 @@ class App extends Component {
             <section className="info-column">
             </section>
             <section className="civCase">
+              <Gallery civs={this.state.civs}>
             </section>
           </Route>
         </Switch>
