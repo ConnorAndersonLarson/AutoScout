@@ -22,6 +22,11 @@ class App extends Component {
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
   }
 
+  crestClick = (id) => {
+    console.log(id)
+    this.setState({ civ: id })
+  }
+
   render () {
     return(
       <div className="main-page">
@@ -41,7 +46,7 @@ class App extends Component {
                 </div>
               </section>
               <section className="civCase">
-                <Gallery civs={this.state.civs} />
+                <Gallery civs={this.state.civs} crestClick={this.crestClick} />
               </section>
           </Route>
         </Switch>

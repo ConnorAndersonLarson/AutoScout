@@ -2,7 +2,7 @@ import React from 'react';
 import CivCrest from '../civCrest/CivCrest';
 import './Gallery.css';
 
-const Gallery = ({civs}) => {
+const Gallery = ({civs, crestClick}) => {
   const civCrests = civs.map(civ => {
     return(
       <CivCrest
@@ -10,6 +10,7 @@ const Gallery = ({civs}) => {
         exp={civ.expansion}
         name={civ.name}
         army={civ.army_type}
+        onClick={ event => {crestClick(event.target.id)} }
       />
     )
   })
