@@ -40,8 +40,9 @@ main {
   border: solid 5px #8A4F11;
   grid-area: sidebar;
   width: 235px;
-  height: 100%;
-
+  position: absolute;
+  top: 75px;
+  bottom: 0px;
 }
 
 .civCase {
