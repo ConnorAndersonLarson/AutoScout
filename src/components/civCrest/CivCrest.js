@@ -22,8 +22,8 @@ const CivCrest = ({id, exp, name, army, crestClick}) => {
  findCrest(army)
   return (
     <div className='crest' id={id} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
-      <img src={findCrest(army)} alt="shield being used as a background" className="crestImg" id="img" />
-      <h3 className={`${exp} civ-name`} id="name"><b>{name}</b></h3>
+      <img src={findCrest(army)} key={`img-${id}`} alt="shield being used as a background" className="crestImg" />
+      <h3 className={`${exp} civ-name`} key={`name-${id}`}><b>{name}</b></h3>
     </div>
   )
 }

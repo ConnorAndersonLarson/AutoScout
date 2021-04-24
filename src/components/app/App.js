@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route, Link} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js';
 import Gallery from '../gallery/Gallery';
 import CivInfo from '../civInfo/CivInfo';
+import CompCiv from '../compCiv/CompCiv';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       civs: [],
-      civId: null,
+      civ: null,
       error: ''
     }
   }
@@ -36,22 +37,29 @@ class App extends Component {
           <h1 className="title">AutoScout</h1>
         </header>
         <main>
-        <Switch>
-          <Route exact path ="/">
               <section className="info-column">
                 <div>
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
                 </div>
                 <div>
+
+                {!!this.state.civ &&  <Link to={`/${this.state.civ.id}`}>
+                    <button className="primaryButton">Inspect!</button>
+                  </ Link>}
                 </div>
                 <div>
                 </div>
               </section>
-              <section className="civCase">
-                <Gallery civs={this.state.civs} crestClick={this.crestClick} />
-              </section>
-          </Route>
-        </Switch>
+              <Switch>
+                <Route exact path ="/">
+                  <section className="civCase">
+                    <Gallery civs={this.state.civs} crestClick={this.crestClick} />
+                  </section>
+                </Route>
+                <Route path="/:id">
+                  <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.crestClick} />
+                </Route>
+              </Switch>
         </main>
       </div>
     )
