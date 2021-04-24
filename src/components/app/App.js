@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       civs: [],
-      civ: {},
+      civId: null,
       error: ''
     }
   }
@@ -24,9 +24,10 @@ class App extends Component {
 
 
   crestClick = (civId) => {
-    console.log(civId)
-    this.setState({ civ: civId })
+    let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
+    this.setState({ civ: thisCiv })
   }
+
 
   render () {
     return(
@@ -39,7 +40,7 @@ class App extends Component {
           <Route exact path ="/">
               <section className="info-column">
                 <div>
-                  {this.state.civ && <CivInfo civ={this.state.civ} /> }
+                  {!!this.state.civ && <CivInfo props={this.state.civ} /> }
                 </div>
                 <div>
                 </div>
