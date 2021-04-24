@@ -1,29 +1,18 @@
+.crest {
+  position: relative;
+  text-align: center;
+}
+
 .crestImg {
   height: 100px;
+  z-index: 
 }
 
 .civ-name {
   text-align: center;
-  position: relative;
-  bottom: 70px;
-}
-
-.Conquerors {
-
-}
-
-.Kings {
-
-}
-
-.African {
-
-}
-
-.Rajas {
-
-}
-
-.Forgotten {
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }

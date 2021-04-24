@@ -60,15 +60,17 @@ class App extends Component {
               </section>
               <Switch>
                 <Route exact path ="/">
-                  <section className="civCase">
+
                     <Gallery civs={this.state.civs} crestClick={this.crestClick} />
-                  </section>
+
                 </Route>
                 <Route path="/:id">
                   <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.crestClick} />
                 </Route>
               </Switch>
         </main>
+        <footer className="footer">
+        </footer>
       </div>
     )
   }

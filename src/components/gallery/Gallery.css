@@ -1,9 +1,10 @@
 .civ-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 100%;
-  width:auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-gap: 1rem;
+  grid-template-rows: repeat(auto-fit, 100px);
+  height: 82vh;
+  overflow-x: scroll;
   background-color: #D0B385;
   border: solid 5px #8A4F11;
 }
