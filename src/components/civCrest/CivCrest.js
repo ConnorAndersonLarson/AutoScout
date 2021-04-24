@@ -2,7 +2,7 @@ import React from 'react';
 import shield from './images';
 import './CivCrest.css';
 
-const CivCrest = ({id, exp, name, army}) => {
+const CivCrest = ({id, exp, name, army, crestClick}) => {
 
  const findCrest = (army_type) => {
    let at = army_type.toLowerCase()
@@ -21,9 +21,9 @@ const CivCrest = ({id, exp, name, army}) => {
 
  findCrest(army)
   return (
-    <div className='crest' id={id} key={id} >
-      <img src={findCrest(army)} alt="shield being used as a background" className="crestImg" />
-      <h3 className={`${exp} civ-name`}><b>{name}</b></h3>
+    <div className='crest' id={id} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
+      <img src={findCrest(army)} alt="shield being used as a background" className="crestImg" id="img" />
+      <h3 className={`${exp} civ-name`} id="name"><b>{name}</b></h3>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Switch, Route} from 'react-router-dom';
-import { getCivs } from '../../apiCalls.js'
+import { getCivs } from '../../apiCalls.js';
 import Gallery from '../gallery/Gallery';
 import CivInfo from '../civInfo/CivInfo';
 import './App.css';
@@ -22,9 +22,10 @@ class App extends Component {
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
   }
 
-  crestClick = (id) => {
-    console.log(id)
-    this.setState({ civ: id })
+
+  crestClick = (civId) => {
+    console.log(civId)
+    this.setState({ civ: civId })
   }
 
   render () {
