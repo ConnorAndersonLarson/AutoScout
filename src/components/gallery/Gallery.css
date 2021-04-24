@@ -1,0 +1,9 @@
+.civ-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 100%;
+  width:auto;
+  background-color: #D0B385;
+  border: solid 5px #8A4F11;
+}

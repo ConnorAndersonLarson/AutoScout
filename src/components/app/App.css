@@ -2,15 +2,54 @@
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "sidebar gallery";
+  height: inherit;
+}
+
 .header {
   background-color: #D0B385;
+  /* background: "url(/icons/paper.jpg)";
+  background-size: contain;
+  background-position: top;
+  background: cover; */
   width: 100%;
   height: 75px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  grid-area: header;
 }
+
+.main-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px auto;
+  grid-template-areas:
+    "header"
+    "main"
+}
+
 
 .title {
   padding-left: 5%;
+}
+
+.info-column {
+  background-color: #D0B385;
+  border: solid 5px #8A4F11;
+  grid-area: sidebar;
+  top: 75px;
+  bottom: 0px;
+}
+
+.civCase {
+  grid-area: gallery;
+  display: flex;
+  flex-wrap: wrap;
 }
