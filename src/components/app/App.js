@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       civs: [],
       civ: null,
+      civId: '',
       error: ''
     }
   }
@@ -29,6 +30,14 @@ class App extends Component {
     this.setState({ civ: thisCiv })
   }
 
+  changePage = () => {
+    if (this.state.civ.id === this.state.civId) {
+      this.setState({civId: ''})
+    } else {
+      this.setState({civId: this.state.civ.id })
+    }
+  }
+
 
   render () {
     return(
@@ -42,9 +51,8 @@ class App extends Component {
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
                 </div>
                 <div>
-
-                {!!this.state.civ &&  <Link to={`/${this.state.civ.id}`}>
-                    <button className="primaryButton">Inspect!</button>
+                  {!!this.state.civ && <Link to={`/${this.state.civId}`}>
+                    <button className="primaryButton" onClick={ this.changePage }>Inspect!</button>
                   </ Link>}
                 </div>
                 <div>
