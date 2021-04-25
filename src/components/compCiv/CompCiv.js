@@ -1,11 +1,13 @@
+import {useEffect} from 'react';
 import {complimentaryCivs, stackingCivs} from '../../matchups';
 import PropTypes from 'prop-types';
 import Gallery from '../gallery/Gallery';
 import './CompCiv.css';
 
 const CompCiv = ({info, base, updateCiv}) => {
-
-  updateCiv(info)
+  useEffect(() => {
+    updateCiv(info)
+  })
 
   const filterCivs = (civKey) => {
     const theseCivs = civKey[info.name].map(eachCivId => {

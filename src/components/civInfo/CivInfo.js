@@ -4,14 +4,16 @@ import './CivInfo.css';
 
 const CivInfo = ({props}) => {
 
-  const civBonus = props.civilization_bonus.map(bonus => <React.Fragment><li>{bonus}<br /></li></React.Fragment>)
+  const civBonus = props.civilization_bonus.map((bonus, i) => {
+    return <React.Fragment><li key={i.toString()}>{bonus}<br /></li></React.Fragment>
+  })
 
   return (
     <div className='civ-info' id={props.id}>
-      <h3 className={props.expansion}><b>{props.name}</b></h3>
-      <p><b>Focus: </b>{props.army_type}</p>
-      <p><b>Civ Bonus: </b>{civBonus}</p>
-      <p><b>Team Bonus: </b>{props.team_bonus}</p>
+      <h3 key={'1'} className={props.expansion}><b>{props.name}</b></h3>
+      <p key={'2'} ><b>Focus: </b>{props.army_type}</p>
+      <p key={'3'} ><b>Civ Bonus: </b>{civBonus}</p>
+      <p key={'4'} ><b>Team Bonus: </b>{props.team_bonus}</p>
     </div>
   )
 }

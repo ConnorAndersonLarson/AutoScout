@@ -13,6 +13,7 @@ class App extends Component {
       civs: [],
       civ: null,
       civId: '',
+      favorites: [],
       error: ''
     }
   }
