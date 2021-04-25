@@ -42,6 +42,7 @@ main {
   border: solid 5px #8A4F11;
   grid-area: footer;
   height: 8vh;
+  z-index: 1;
 }
 
 
@@ -79,4 +80,5 @@ main {
 .favorites {
   height: auto;
   margin: 10px;
+  height: 40%;
 }
