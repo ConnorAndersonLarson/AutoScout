@@ -5,7 +5,7 @@ import './CivInfo.css';
 const CivInfo = ({props}) => {
 
   const civBonus = props.civilization_bonus.map((bonus, i) => {
-    return <React.Fragment><li key={i.toString()}>{bonus}<br /></li></React.Fragment>
+    return <React.Fragment key={i.toString()}><li>{bonus}<br /></li></React.Fragment>
   })
 
   return (
