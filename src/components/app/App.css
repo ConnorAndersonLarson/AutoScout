@@ -72,3 +72,8 @@ main {
 .gallery-box {
   height: 82vh;
 }
+
+.favorites {
+  height: auto;
+  margin: 10px;
+}

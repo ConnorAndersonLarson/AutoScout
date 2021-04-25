@@ -45,10 +45,10 @@ class App extends Component {
   }
 
   addFavorites = (thisCiv) => {
+    console.log(thisCiv)
     let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
     if (!faveFind) {
-      const faves = [...this.state.favorites].push(thisCiv)
-      this.setState({favorites: faves})
+      this.setState(prevState => ({favorites: [...prevState.favorites, thisCiv]}))
     }
   }
 
@@ -68,8 +68,9 @@ class App extends Component {
                     {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? 'Inspect!' : 'Return Home!'}</button> }
                   </ Link>
                 </div>
-                <div>
-                  
+                <div className="favorites">
+                  <h3>Favorite Civs!</h3>
+                    <Gallery civs={this.state.favorites} />
                 </div>
               </section>
               <Switch>
@@ -87,7 +88,7 @@ class App extends Component {
                       {!thisCiv && <h2> Scouting for your civs...</h2>}
                       {thisCiv &&
                       <>
-                        <CompCiv info={thisCiv} base={this.state.civs} updateCiv={this.updateCiv}  />
+                        <CompCiv info={thisCiv} base={this.state.civs} updateCiv={this.updateCiv} addFavorites={this.addFavorites}  />
                       </>
                       }
                     </>

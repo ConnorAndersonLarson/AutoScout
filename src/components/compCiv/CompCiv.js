@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Gallery from '../gallery/Gallery';
 import './CompCiv.css';
 
-const CompCiv = ({info, base, updateCiv}) => {
+const CompCiv = ({info, base, updateCiv, addFavorites}) => {
   useEffect(() => {
     updateCiv(info)
   })
@@ -19,16 +19,21 @@ const CompCiv = ({info, base, updateCiv}) => {
 
   const crestClick = () => {}
 
+  const addFave = () => {
+    addFavorites(info)
+  }
+
   return(
     <div className="comp-civ">
-        <h3>Complimentary Civs</h3>
+        <h3 className="comp">Complimentary Civs</h3>
         <div className="comp-box">
           <Gallery civs={filterCivs(complimentaryCivs)} crestClick={crestClick} />
         </div>
-        <h3>Stacking Civs</h3>
-        <div>
+        <h3 className="stack">Stacking Civs</h3>
+        <div className="stack-box">
           <Gallery civs={filterCivs(stackingCivs)} crestClick={crestClick} />
         </div>
+        <button className="fave-button" onClick={addFave} >Favorite This Civ!</button>
     </div>
   )
 }
