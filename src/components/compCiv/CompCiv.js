@@ -1,9 +1,20 @@
 import './CompCiv.css';
 
-const CompCiv = ({ideas, base}) => {
+const CompCiv = ({info, base}) => {
+
+
 
   return(
-    <h3>Similar Civs</h3>
+    <div className="comp-civ">
+      <div>
+        <h3>Similar Civs</h3>
+        <div></div>
+      </div>
+      <div>
+        <h3>Synergystic Civs</h3>
+        <div></div>
+      </div>
+    </div>
   )
 }
 

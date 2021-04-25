@@ -27,7 +27,7 @@ class App extends Component {
 
   crestClick = (civId) => {
     let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
-    this.setState({ civ: thisCiv })
+    this.setState({ civ: thisCiv, civId: thisCiv.id })
   }
 
   changePage = () => {
@@ -51,18 +51,16 @@ class App extends Component {
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
                 </div>
                 <div>
-                  {!!this.state.civ && <Link to={`/${this.state.civId}`}>
-                    <button className="primaryButton" onClick={ this.changePage }>Inspect!</button>
-                  </ Link>}
+                  <Link to={`/${this.state.civId}`}>
+                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId !== '' ? 'Inspect!' : 'Return Home!'}</button> }
+                  </ Link>
                 </div>
                 <div>
                 </div>
               </section>
               <Switch>
                 <Route exact path ="/">
-
                     <Gallery civs={this.state.civs} crestClick={this.crestClick} />
-
                 </Route>
                 <Route path="/:id">
                   <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.crestClick} />
