@@ -13,6 +13,7 @@ class App extends Component {
       civs: [],
       civ: null,
       civId: '',
+      location: 'home',
       favorites: [],
       error: ''
     }
@@ -26,8 +27,12 @@ class App extends Component {
   }
 
   crestClick = (civId) => {
-    let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
-      this.setState({ civ: thisCiv, civId: thisCiv.name })
+    console.log(civId)
+
+    if ((civId !== this.state.civId && this.state.location) || (this.state.civId === this.state.location) || (this.state.civId && !this.state.location)) {
+      let thisCiv = this.state.civs.find(civ => civ.name === civId)
+        this.setState({ civ: thisCiv, civId: thisCiv.name })
+    }
   }
 
   updateCiv = (civInfo) => {
@@ -38,9 +43,9 @@ class App extends Component {
 
   changePage = () => {
     if (this.state.civId !== '') {
-      this.setState({civId: ''})
+      this.setState({civId: '', location: ''})
     } else {
-      this.setState({civId: this.state.civ.name})
+      this.setState({civId: this.state.civ.name, location: 'home'})
     }
   }
 
@@ -65,12 +70,12 @@ class App extends Component {
                 </div>
                 <div>
                   <Link to={`/${this.state.civId}`}>
-                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? 'Inspect!' : 'Return Home!'}</button> }
+                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
                 </div>
                 <div className="favorites">
                   <h3>Favorite Civs!</h3>
-                    <Gallery civs={this.state.favorites} />
+                    <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
                 </div>
               </section>
               <Switch>
@@ -88,7 +93,7 @@ class App extends Component {
                       {!thisCiv && <h2> Scouting for your civs...</h2>}
                       {thisCiv &&
                       <>
-                        <CompCiv info={thisCiv} base={this.state.civs} updateCiv={this.updateCiv} addFavorites={this.addFavorites}  />
+                        <CompCiv info={thisCiv} base={this.state.civs} crestClick={this.crestClick} updateCiv={this.updateCiv} addFavorites={this.addFavorites}  />
                       </>
                       }
                     </>

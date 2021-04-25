@@ -29,7 +29,7 @@ main {
 .main-page {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 9vh auto 8vh;
+  grid-template-rows: 9vh 82vh 8vh;
   grid-template-areas:
     "header"
     "main"
@@ -39,6 +39,7 @@ main {
 
 .footer {
   background-color: #D0B385;
+  border: solid 5px #8A4F11;
   grid-area: footer;
   height: 8vh;
 }
@@ -70,7 +71,9 @@ main {
 }
 
 .gallery-box {
-  height: 82vh;
+  overflow: scroll;
+  background-color: #D0B385;
+  border: solid 5px #8A4F11;
 }
 
 .favorites {

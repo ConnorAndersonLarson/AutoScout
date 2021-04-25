@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Gallery from '../gallery/Gallery';
 import './CompCiv.css';
 
-const CompCiv = ({info, base, updateCiv, addFavorites}) => {
+const CompCiv = ({info, base, crestClick, updateCiv, addFavorites}) => {
   useEffect(() => {
     updateCiv(info)
   })
@@ -17,7 +17,6 @@ const CompCiv = ({info, base, updateCiv, addFavorites}) => {
     return(theseCivs);
   };
 
-  const crestClick = () => {}
 
   const addFave = () => {
     addFavorites(info)

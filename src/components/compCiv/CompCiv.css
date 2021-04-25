@@ -17,6 +17,9 @@
 }
 
 .comp-box, .stack-box {
+  overflow: scroll;
+  background-color: #D0B385;
+  border: solid 5px #8A4F11;
   height: 90%;
   margin: 10px;
 }
