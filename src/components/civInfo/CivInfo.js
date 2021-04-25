@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './CivInfo.css';
 
 const CivInfo = ({props}) => {
@@ -16,3 +17,11 @@ const CivInfo = ({props}) => {
 }
 
 export default CivInfo;
+
+CivInfo.propTypes = {
+  civilization_bonus: PropTypes.array,
+  id: PropTypes.number,
+  expansion: PropTypes.string,
+  name: PropTypes.string,
+  team_bonus: PropTypes.string
+}

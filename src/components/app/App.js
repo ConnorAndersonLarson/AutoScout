@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Switch, Route, Link, useLocation} from 'react-router-dom';
+import { Switch, Route, Link} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js';
 import Gallery from '../gallery/Gallery';
 import CivInfo from '../civInfo/CivInfo';

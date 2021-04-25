@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './CivCrest.css';
 
 const CivCrest = ({id, exp, name, army, crestClick}) => {
@@ -28,3 +29,11 @@ const CivCrest = ({id, exp, name, army, crestClick}) => {
 }
 
 export default CivCrest;
+
+CivCrest.propTypes = {
+  id: PropTypes.number,
+  exp: PropTypes.string,
+  name:PropTypes.string,
+  army: PropTypes.string,
+  crestClick: PropTypes.func
+}

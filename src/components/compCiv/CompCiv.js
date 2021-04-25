@@ -1,4 +1,5 @@
 import {complimentaryCivs, stackingCivs} from '../../matchups';
+import PropTypes from 'prop-types';
 import Gallery from '../gallery/Gallery';
 import './CompCiv.css';
 
@@ -31,3 +32,9 @@ const CompCiv = ({info, base, updateCiv}) => {
 }
 
 export default CompCiv;
+
+CompCiv.propTypes = {
+  info: PropTypes.object,
+  base: PropTypes.array,
+  updateCiv: PropTypes.func
+}
