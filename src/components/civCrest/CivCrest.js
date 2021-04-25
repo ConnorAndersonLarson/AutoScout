@@ -18,7 +18,7 @@ const CivCrest = ({id, exp, name, army, crestClick}) => {
    }
  }
 
- 
+
   return (
     <div className='crest' id={id} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
       <img src={window.location.origin + `/civIcons/CivIcon-${name}.png`} key={`icon-${id}`} alt={`Crest of the ${name} civilization`} className="crestIcon" />

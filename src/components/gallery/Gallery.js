@@ -2,7 +2,7 @@ import React from 'react';
 import CivCrest from '../civCrest/CivCrest';
 import './Gallery.css';
 
-const Gallery = ({civs, crestClick}) => {
+const Gallery = ({civs, crestClick, newCrestClick}) => {
   const civCrests = civs.map(civ => {
     return(
       <CivCrest
@@ -10,7 +10,7 @@ const Gallery = ({civs, crestClick}) => {
         exp={civ.expansion}
         name={civ.name}
         army={civ.army_type}
-        crestClick={crestClick}
+        crestClick={crestClick || newCrestClick}
       />
     )
   })

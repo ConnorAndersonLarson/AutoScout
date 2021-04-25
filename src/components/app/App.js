@@ -27,14 +27,18 @@ class App extends Component {
 
   crestClick = (civId) => {
     let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
-    this.setState({ civ: thisCiv, civId: thisCiv.id })
+      this.setState({ civ: thisCiv, civId: thisCiv.id })
+  }
+
+  newCrestClick = (civId) => {
+      this.setState({ civId: civId })
   }
 
   changePage = () => {
-    if (this.state.civ.id === this.state.civId) {
+    if (this.state.civId !== '') {
       this.setState({civId: ''})
     } else {
-      this.setState({civId: this.state.civ.id })
+      this.setState({civId: this.state.civ.id})
     }
   }
 
@@ -52,7 +56,7 @@ class App extends Component {
                 </div>
                 <div>
                   <Link to={`/${this.state.civId}`}>
-                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId !== '' ? 'Inspect!' : 'Return Home!'}</button> }
+                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? 'Inspect!' : 'Return Home!'}</button> }
                   </ Link>
                 </div>
                 <div>
@@ -65,7 +69,7 @@ class App extends Component {
                   </div>
                 </Route>
                 <Route path="/:id">
-                  <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.crestClick} />
+                  <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.newCrestClick} />
                 </Route>
               </Switch>
         </main>
