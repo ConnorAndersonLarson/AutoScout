@@ -1,29 +1,46 @@
-.crestImg {
-  height: 100px;
+.crest {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.crestIcon {
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .civ-name {
   text-align: center;
-  position: relative;
-  bottom: 70px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: 1px;
+  border: solid 2px black;
+  border-radius: 2px;
 }
 
-.Conquerors {
-
+.red {
+  background-color: #DB4A14;
 }
 
-.Kings {
-
+.yellow {
+  background-color:  #F9AC3D;
 }
 
-.African {
-
+.green {
+  background-color: #758C33;
 }
 
-.Rajas {
-
+.blue {
+  background-color: #2D758C;
 }
 
-.Forgotten {
-
+.grey {
+  background-color: #838383;
 }

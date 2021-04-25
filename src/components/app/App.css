@@ -9,7 +9,7 @@ main {
   grid-template-rows: auto;
   grid-template-areas:
     "sidebar gallery";
-  height: inherit;
+  height: 100%;
 }
 
 .header {
@@ -19,7 +19,7 @@ main {
   background-position: top;
   background: cover; */
   width: 100%;
-  height: 75px;
+  height: 9vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,10 +29,18 @@ main {
 .main-page {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 75px auto;
+  grid-template-rows: 9vh auto 8vh;
   grid-template-areas:
     "header"
     "main"
+    "footer";
+  height: 100%;
+}
+
+.footer {
+  background-color: #D0B385;
+  grid-area: footer;
+  height: 8vh;
 }
 
 
@@ -41,15 +49,26 @@ main {
 }
 
 .info-column {
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
   background-color: #D0B385;
   border: solid 5px #8A4F11;
   grid-area: sidebar;
   top: 75px;
   bottom: 0px;
+  height: 82vh;
 }
 
-.civCase {
-  grid-area: gallery;
-  display: flex;
-  flex-wrap: wrap;
+.primaryButton {
+  box-sizing: content-box;
+  margin: 10px;
+  width: 90%;
+  height: 100%;
+  background-color: #CF4A18;
+  font-weight: bold;
+}
+
+.gallery-box {
+  height: 82vh;
 }
