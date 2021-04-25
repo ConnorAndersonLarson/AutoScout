@@ -44,6 +44,13 @@ class App extends Component {
     }
   }
 
+  addFavorites = (thisCiv) => {
+    let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
+    if (!faveFind) {
+      const faves = [...this.state.favorites].push(thisCiv)
+      this.setState({favorites: faves})
+    }
+  }
 
   render () {
     return(
@@ -62,6 +69,7 @@ class App extends Component {
                   </ Link>
                 </div>
                 <div>
+                  
                 </div>
               </section>
               <Switch>
