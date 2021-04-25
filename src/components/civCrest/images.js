@@ -1,8 +1,8 @@
-import blue from './shield-blue.png';
-import green from './shield-green.png';
-import red from './shield-red.png';
-import yellow from './shield-yellow.png';
-import grey from './shield.png';
+import blue from './images/shield-blue.png';
+import green from './images/shield-green.png';
+import red from './images/shield-red.png';
+import yellow from './images/shield-yellow.png';
+import grey from './images/shield.png';
 export default {
   blue,
   green,

@@ -1,8 +1,8 @@
 .civ-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 100px);
-  grid-gap: 1rem;
-  grid-template-rows: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fit, 90px);
+  grid-gap: 1.25rem;
+  grid-template-rows: repeat(auto-fit, 90px);
   height: 82vh;
   overflow-x: scroll;
   background-color: #D0B385;

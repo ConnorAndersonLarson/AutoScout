@@ -1,18 +1,46 @@
 .crest {
   position: relative;
   text-align: center;
+  cursor: pointer;
 }
 
-.crestImg {
-  height: 100px;
-  z-index: 
-}
-
-.civ-name {
-  text-align: center;
+.crestIcon {
+  height: 90px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+.civ-name {
+  text-align: center;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: 1px;
+  border: solid 2px black;
+  border-radius: 2px;
+}
+
+.red {
+  background-color: #DB4A14;
+}
+
+.yellow {
+  background-color:  #F9AC3D;
+}
+
+.green {
+  background-color: #758C33;
+}
+
+.blue {
+  background-color: #2D758C;
+}
+
+.grey {
+  background-color: #838383;
 }

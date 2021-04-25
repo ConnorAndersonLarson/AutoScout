@@ -1,29 +1,28 @@
 import React from 'react';
-import shield from './images';
 import './CivCrest.css';
 
 const CivCrest = ({id, exp, name, army, crestClick}) => {
 
- const findCrest = (army_type) => {
+ const findType = (army_type) => {
    let at = army_type.toLowerCase()
    if (at.includes('infantry') || at.includes('siege')) {
-     return shield.red
+     return 'red'
    } else if (at.includes('calvary') || at.includes('cavalry') || at.includes('elephant')) {
-     return shield.yellow
+     return 'yellow'
    } else if (at.includes('archer') || at.includes('gunpowder')) {
-     return shield.green
+     return 'green'
    } else if (at.includes('naval')) {
-     return shield.blue
+     return 'blue'
    } else {
-     return shield.grey
+     return 'grey'
    }
  }
 
- findCrest(army)
+ 
   return (
     <div className='crest' id={id} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
-      <img src={findCrest(army)} key={`img-${id}`} alt="shield being used as a background" className="crestImg" />
-      <h3 className={`${exp} civ-name`} key={`name-${id}`}><b>{name}</b></h3>
+      <img src={window.location.origin + `/civIcons/CivIcon-${name}.png`} key={`icon-${id}`} alt={`Crest of the ${name} civilization`} className="crestIcon" />
+      <h3 className={`${findType(army)} civ-name`} key={`name-${id}`}><b>{name}</b></h3>
     </div>
   )
 }
