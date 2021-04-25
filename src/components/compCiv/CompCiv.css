@@ -2,4 +2,12 @@
     height: 82vh;
     background-color: #D0B385;
     border: solid 5px #8A4F11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.comp-box {
+  height: 33%;
 }

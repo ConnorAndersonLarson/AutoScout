@@ -68,3 +68,7 @@ main {
   background-color: #CF4A18;
   font-weight: bold;
 }
+
+.gallery-box {
+  height: 82vh;
+}

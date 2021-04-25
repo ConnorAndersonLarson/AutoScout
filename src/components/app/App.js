@@ -60,7 +60,9 @@ class App extends Component {
               </section>
               <Switch>
                 <Route exact path ="/">
+                  <div className="gallery-box">
                     <Gallery civs={this.state.civs} crestClick={this.crestClick} />
+                  </div>
                 </Route>
                 <Route path="/:id">
                   <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.crestClick} />

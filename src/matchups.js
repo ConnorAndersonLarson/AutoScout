@@ -26,7 +26,7 @@ const complimentaryCivs = {
     'Khmer': [5, 12, 15, 25, 31, 32],
     'Magyars': [2, 5, 11, 12, 21, 31, 32],
     'Malians': [5, 12, 15, 31, 32],
-    'Portuguese': [5, 12, 15 31],
+    'Portuguese': [5, 12, 15, 31],
     'Slavs': [5, 15, 32],
     'Vietnamese': [5, 12, 25, 31],
 };
@@ -39,7 +39,7 @@ const stackingCivs = {
     'Chinese': [15, 16, 23],
     'Franks': [8, 13, 19],
     'Goths': [25],
-    'Huns': [6 13, 19, 24, 32],
+    'Huns': [6, 13, 19, 24, 32],
     'Japanese': [18],
     'Koreans': [4, 21],
     'Mayans': [14],
@@ -52,7 +52,7 @@ const stackingCivs = {
     'Vikings': [9],
     'Berbers': [6, 8, 13],
     'Burmese': [1, 15],
-    'Ethiopians': [5 10, 15],
+    'Ethiopians': [5, 10, 15],
     'Incas': [5, 15, 16],
     'Indians': [8, 12],
     'Italians': [7, 15, 17, 30],
@@ -63,3 +63,5 @@ const stackingCivs = {
     'Slavs': [2, 7, 12],
     'Vietnamese': [3, 5, 15, 17],
 }
+
+export {complimentaryCivs, stackingCivs};
