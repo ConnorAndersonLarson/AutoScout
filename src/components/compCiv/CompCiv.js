@@ -2,7 +2,9 @@ import {complimentaryCivs, stackingCivs} from '../../matchups';
 import Gallery from '../gallery/Gallery';
 import './CompCiv.css';
 
-const CompCiv = ({info, base,}) => {
+const CompCiv = ({info, base, updateCiv}) => {
+
+  updateCiv(info)
 
   const filterCivs = (civKey) => {
     const theseCivs = civKey[info.name].map(eachCivId => {

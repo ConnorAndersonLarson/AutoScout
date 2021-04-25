@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route, Link, useLocation} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js';
 import Gallery from '../gallery/Gallery';
 import CivInfo from '../civInfo/CivInfo';
@@ -24,21 +24,22 @@ class App extends Component {
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
   }
 
-
   crestClick = (civId) => {
     let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
-      this.setState({ civ: thisCiv, civId: thisCiv.id })
+      this.setState({ civ: thisCiv, civId: thisCiv.name })
   }
 
-  newCrestClick = (civId) => {
-      this.setState({ civId: civId })
+  updateCiv = (civInfo) => {
+    if (this.state.civ !== civInfo) {
+      this.setState({ civ: civInfo })
+    }
   }
 
   changePage = () => {
     if (this.state.civId !== '') {
       this.setState({civId: ''})
     } else {
-      this.setState({civId: this.state.civ.id})
+      this.setState({civId: this.state.civ.name})
     }
   }
 
@@ -49,7 +50,7 @@ class App extends Component {
         <header className="header">
           <h1 className="title">AutoScout</h1>
         </header>
-        <main>
+          <main>
               <section className="info-column">
                 <div>
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
@@ -63,16 +64,28 @@ class App extends Component {
                 </div>
               </section>
               <Switch>
-                <Route exact path ="/">
-                  <div className="gallery-box">
-                    <Gallery civs={this.state.civs} crestClick={this.crestClick} />
-                  </div>
-                </Route>
-                <Route path="/:id">
-                  <CompCiv info={this.state.civ} base={this.state.civs} crestClick={this.newCrestClick} />
-                </Route>
+                <Route exact path ="/" render={() => {
+                  return (
+                    <div className="gallery-box">
+                      <Gallery civs={this.state.civs} crestClick={this.crestClick} />
+                    </div>
+                  )
+                }} />
+                <Route path="/:name" render={({ match }) => {
+                  const thisCiv = this.state.civs.find(civ => civ.name === match.params.name);
+                  return (
+                    <>
+                      {!thisCiv && <h2> Scouting for your civs...</h2>}
+                      {thisCiv &&
+                      <>
+                        <CompCiv info={thisCiv} base={this.state.civs} updateCiv={this.updateCiv}  />
+                      </>
+                      }
+                    </>
+                  )
+                }} />
               </Switch>
-        </main>
+          </main>
         <footer className="footer">
         </footer>
       </div>
