@@ -28,8 +28,21 @@ class App extends Component {
         return response.json();
       })
       .then(civs => civs.civilizations)
-      .then(civs => this.setState({civs}))
+      .then(civs => this.setState({civs: this.cleanData(civs)}))
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
+  }
+
+  cleanData = (data) => {
+    return data.map(block => {
+      return {
+        id: block.id,
+        name: block.name,
+        expansion: block.expansion,
+        army_type: block.army_type,
+        team_bonus: block.team_bonus,
+        civilization_bonus: block.civilization_bonus
+  }
+    })
   }
 
   crestClick = (civId) => {
@@ -81,7 +94,7 @@ class App extends Component {
                   <Link to={`/${this.state.civId}`}>
                     {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
-                
+
                 <div className="favorites">
                     {this.state.favorites.length !== 0 && <h3>Favorite Civs!</h3>}
                     <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
