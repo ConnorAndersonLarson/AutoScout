@@ -12,8 +12,17 @@ main {
   height: 100%;
 }
 
-h3 {
+h3, h2 {
   text-align: center;
+}
+
+button {
+  font-size: larger;
+}
+
+ul {
+  margin: 0;
+  padding: 20px;
 }
 
 .header {

@@ -91,7 +91,7 @@ class App extends Component {
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
 
 
-                  <Link to={`/${this.state.civId}`}>
+                  <Link to={`/${this.state.civId}`} aria-label="Link to inspect civilization after selecting a civ crest.">
                     {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
 

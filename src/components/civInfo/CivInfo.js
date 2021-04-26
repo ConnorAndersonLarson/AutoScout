@@ -10,9 +10,12 @@ const CivInfo = ({props}) => {
 
   return (
     <div className='civ-info' id={props.id}>
-      <h3 className={props.expansion}><b>{props.name}</b></h3>
+      <h2 className={props.expansion}><b>{props.name}</b></h2>
       <p ><b>Focus: </b>{props.army_type}</p>
-      <p ><b>Civ Bonus: </b>{civBonus}</p>
+      <div>
+        <b>Civ Bonus: </b>
+        <ul>{civBonus}</ul>
+      </div>
       <p  ><b>Team Bonus: </b>{props.team_bonus}</p>
     </div>
   )
