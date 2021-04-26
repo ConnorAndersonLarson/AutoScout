@@ -2,7 +2,7 @@
   position: relative;
   text-align: center;
   cursor: pointer;
-  height: 90px;
+  height: 100px;
 }
 
 .crestIcon:hover {
@@ -28,7 +28,7 @@
 .civ-name {
   text-align: center;
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

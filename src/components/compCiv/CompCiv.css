@@ -64,3 +64,17 @@
     overflow: auto;
   }
 }
+
+@media only screen and (max-width: 580px) {
+  .comp-civ {
+    overflow:unset;
+    grid-template-rows: 4% auto 10%;
+    border: unset;
+  }
+
+  .comp-box, .stack-box {
+    overflow: unset;
+    height: 100%;
+    margin: 10px;
+  }
+}
