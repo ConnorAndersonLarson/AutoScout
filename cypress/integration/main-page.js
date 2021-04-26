@@ -22,6 +22,7 @@ describe('Main Page Testing', () => {
       })
   })
   it('Should have numerous civs displayed', () => {
+    cy.get('.gallery-box').get('.civ-name').eq(32)
     cy.get('.crest').eq(1).should('exist')
     cy.get('.crest').eq(6).should('exist')
     cy.get('.crest').eq(14).should('exist')
