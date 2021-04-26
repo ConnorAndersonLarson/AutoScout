@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './CivCrest.css';
 
 const CivCrest = ({id, exp, name, army, crestClick}) => {
@@ -20,7 +21,7 @@ const CivCrest = ({id, exp, name, army, crestClick}) => {
 
 
   return (
-    <div className='crest' id={id} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
+    <div className='crest' id={name} key={id} onClick={ event => { crestClick(event.target.closest('div').id) } } >
       <img src={window.location.origin + `/civIcons/CivIcon-${name}.png`} key={`icon-${id}`} alt={`Crest of the ${name} civilization`} className="crestIcon" />
       <h3 className={`${findType(army)} civ-name`} key={`name-${id}`}><b>{name}</b></h3>
     </div>
@@ -28,3 +29,11 @@ const CivCrest = ({id, exp, name, army, crestClick}) => {
 }
 
 export default CivCrest;
+
+CivCrest.propTypes = {
+  id: PropTypes.number,
+  exp: PropTypes.string,
+  name:PropTypes.string,
+  army: PropTypes.string,
+  crestClick: PropTypes.func
+}

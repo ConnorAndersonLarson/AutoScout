@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Switch, Route, Link, useLocation} from 'react-router-dom';
+import { Switch, Route, Link} from 'react-router-dom';
 import { getCivs } from '../../apiCalls.js';
 import Gallery from '../gallery/Gallery';
 import CivInfo from '../civInfo/CivInfo';
@@ -13,6 +13,8 @@ class App extends Component {
       civs: [],
       civ: null,
       civId: '',
+      location: 'home',
+      favorites: [],
       error: ''
     }
   }
@@ -25,8 +27,10 @@ class App extends Component {
   }
 
   crestClick = (civId) => {
-    let thisCiv = this.state.civs.find(civ => civ.id === Number(civId))
-      this.setState({ civ: thisCiv, civId: thisCiv.name })
+    if ((civId !== this.state.civId && this.state.location) || (this.state.civId === this.state.location) || (this.state.civId && !this.state.location)) {
+      let thisCiv = this.state.civs.find(civ => civ.name === civId)
+        this.setState({ civ: thisCiv, civId: thisCiv.name })
+    }
   }
 
   updateCiv = (civInfo) => {
@@ -37,18 +41,30 @@ class App extends Component {
 
   changePage = () => {
     if (this.state.civId !== '') {
-      this.setState({civId: ''})
+      this.setState({civId: '', location: ''})
     } else {
-      this.setState({civId: this.state.civ.name})
+      this.setState({civId: this.state.civ.name, location: 'home'})
     }
   }
 
+  alterFavorites = (thisCiv) => {
+    let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
+    if (!faveFind) {
+      this.setState(prevState => ({favorites: [...prevState.favorites, thisCiv]}))
+    } else {
+      let unFave = this.state.favorites.filter(civ => civ.id !== thisCiv.id)
+      this.setState({favorites: unFave})
+    }
+  }
 
   render () {
     return(
       <div className="main-page">
         <header className="header">
-          <h1 className="title">AutoScout</h1>
+          <img className="title-pic" src={window.location.origin + `/icons/scoutCav.png`} alt="Sprite of a soldier on horse, known as Scout Cavalry in Age of Empires II" />
+          <Link to="/">
+            <h1 className="title">AutoScout</h1>
+          </Link>
         </header>
           <main>
               <section className="info-column">
@@ -57,10 +73,12 @@ class App extends Component {
                 </div>
                 <div>
                   <Link to={`/${this.state.civId}`}>
-                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? 'Inspect!' : 'Return Home!'}</button> }
+                    {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
                 </div>
-                <div>
+                <div className="favorites">
+                  <h3>Favorite Civs!</h3>
+                    <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
                 </div>
               </section>
               <Switch>
@@ -78,7 +96,7 @@ class App extends Component {
                       {!thisCiv && <h2> Scouting for your civs...</h2>}
                       {thisCiv &&
                       <>
-                        <CompCiv info={thisCiv} base={this.state.civs} updateCiv={this.updateCiv}  />
+                        <CompCiv info={thisCiv} base={this.state.civs} crestClick={this.crestClick} updateCiv={this.updateCiv} alterFavorites={this.alterFavorites}  />
                       </>
                       }
                     </>
