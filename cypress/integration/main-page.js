@@ -22,7 +22,7 @@ describe('Main Page Testing', () => {
       })
   })
   it('Should have numerous civs displayed', () => {
-    cy.get('.gallery-box').get('.civ-name').eq(32)
+    cy.get('.gallery-box').get('.civ-name').should('have.length', 32)
     cy.get('.crest').eq(1).should('exist')
     cy.get('.crest').eq(6).should('exist')
     cy.get('.crest').eq(14).should('exist')
@@ -57,5 +57,10 @@ describe('Main Page Testing', () => {
       .get('.comp').should('contain', 'Complimentary Civs')
       .get('.stack').should('contain', 'Stacking Civs')
       .get('.fave-button').should('contain', 'Add/Remove from Favorites')
+  })
+  it('Should be able to return home by clicking title', () => {
+    cy.get('.civ-name').eq(7).click()
+      .get('.title').click()
+      .get('.gallery-box').get('.civ-name').should('have.length', 32)
   })
 })
