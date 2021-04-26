@@ -5,6 +5,5 @@ export const getCivs = () => {
       'accept': 'application/json'
     }
   })
-    .then(response => response.json())
-    .catch(err => console.log(err))
+    
 }
