@@ -49,11 +49,13 @@ class App extends Component {
     }
   }
 
-  addFavorites = (thisCiv) => {
-    console.log(thisCiv)
+  alterFavorites = (thisCiv) => {
     let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
     if (!faveFind) {
       this.setState(prevState => ({favorites: [...prevState.favorites, thisCiv]}))
+    } else {
+      let unFave = this.state.favorites.filter(civ => civ.id !== thisCiv.id)
+      this.setState({favorites: unFave})
     }
   }
 
@@ -93,7 +95,7 @@ class App extends Component {
                       {!thisCiv && <h2> Scouting for your civs...</h2>}
                       {thisCiv &&
                       <>
-                        <CompCiv info={thisCiv} base={this.state.civs} crestClick={this.crestClick} updateCiv={this.updateCiv} addFavorites={this.addFavorites}  />
+                        <CompCiv info={thisCiv} base={this.state.civs} crestClick={this.crestClick} updateCiv={this.updateCiv} alterFavorites={this.alterFavorites}  />
                       </>
                       }
                     </>
