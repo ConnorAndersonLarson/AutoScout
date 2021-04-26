@@ -93,8 +93,8 @@ We made accessibility a priority in our application. Planet Party recieved a 100
 
 ## Contact
 
-[<img src="https://img.shields.io/badge/LinkedIn-connor--andersonlarson-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0077b5"/>][linkedin3]
-[<img src="https://img.shields.io/badge/Github-ConnorAndersonLarson-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github3]
+[<img src="https://img.shields.io/badge/LinkedIn-connor--andersonlarson-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0077b5"/>][linkedin1]
+[<img src="https://img.shields.io/badge/Github-ConnorAndersonLarson-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github1]
 
 
 <!-- Personal Definitions  -->
