@@ -28,8 +28,22 @@ class App extends Component {
         return response.json();
       })
       .then(civs => civs.civilizations)
-      .then(civs => this.setState({civs}))
+      .then(civs => this.setState({civs: this.cleanData(civs)}))
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
+    this.setState({favorites: (JSON.parse(localStorage.getItem('favorites')) || [])})
+  }
+
+  cleanData = (data) => {
+    return data.map(block => {
+      return {
+        id: block.id,
+        name: block.name,
+        expansion: block.expansion,
+        army_type: block.army_type,
+        team_bonus: block.team_bonus,
+        civilization_bonus: block.civilization_bonus
+  }
+    })
   }
 
   crestClick = (civId) => {
@@ -57,9 +71,11 @@ class App extends Component {
     let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
     if (!faveFind) {
       this.setState(prevState => ({favorites: [...prevState.favorites, thisCiv]}))
+      localStorage.setItem(`favorites`, JSON.stringify([...this.state.favorites, thisCiv]));
     } else {
       let unFave = this.state.favorites.filter(civ => civ.id !== thisCiv.id)
       this.setState({favorites: unFave})
+      localStorage.setItem(`favorites`, JSON.stringify(unFave));
     }
   }
 
@@ -74,14 +90,14 @@ class App extends Component {
         </header>
           <main>
               <section className="info-column">
-                <div>
+
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
-                </div>
-                <div>
-                  <Link to={`/${this.state.civId}`}>
+
+
+                  <Link to={`/${this.state.civId}`} aria-label="Link to inspect civilization after selecting a civ crest.">
                     {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
-                </div>
+
                 <div className="favorites">
                     {this.state.favorites.length !== 0 && <h3>Favorite Civs!</h3>}
                     <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
