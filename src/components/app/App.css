@@ -64,6 +64,8 @@ ul {
 
 .title {
   padding-left: 5%;
+  color: black;
+  cursor: pointer;
 }
 
 .info-column {
