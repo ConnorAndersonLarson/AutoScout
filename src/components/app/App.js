@@ -27,8 +27,6 @@ class App extends Component {
   }
 
   crestClick = (civId) => {
-    console.log(civId)
-
     if ((civId !== this.state.civId && this.state.location) || (this.state.civId === this.state.location) || (this.state.civId && !this.state.location)) {
       let thisCiv = this.state.civs.find(civ => civ.name === civId)
         this.setState({ civ: thisCiv, civId: thisCiv.name })
@@ -63,7 +61,10 @@ class App extends Component {
     return(
       <div className="main-page">
         <header className="header">
-          <h1 className="title">AutoScout</h1>
+          <img className="title-pic" src={window.location.origin + `/icons/scoutCav.png`} alt="Sprite of a soldier on horse, known as Scout Cavalry in Age of Empires II" />
+          <Link to="/">
+            <h1 className="title">AutoScout</h1>
+          </Link>
         </header>
           <main>
               <section className="info-column">
