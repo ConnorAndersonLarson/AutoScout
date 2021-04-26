@@ -38,6 +38,25 @@ describe('Main Page Testing', () => {
         .get('.civ-info').should('contain', 'Vikings')
         .get('.primaryButton').should('contain', 'Return Home!')
         .get('.favorites>.civ-gallery').find('.civ-name').eq(0).click()
+        .get('.civ-info').should('contain', 'Vikings')
+        .get('.primaryButton').should('contain', 'Inspect Turks!').click()
+        .get('.civ-info').should('contain', 'Turks')
     })
-
+    it('Should be able to see complimentary civs from other civ pages', () => {
+      cy.get('.comp-box>.civ-gallery').find('.civ-name').eq(0).click()
+        .get('.civ-info').should('contain', 'Turks')
+        .get('.primaryButton').should('contain', 'Inspect Britons!').click()
+        .get('.civ-info').should('contain', 'Britons')
+        .get('.primaryButton').should('contain', 'Return Home!')
+    })
+    it('Should be able to return to the home menu', () => {
+      cy.get('.primaryButton').should('contain', 'Return Home!').click()
+    })
+    it('Should be able to unfavorite a civ', () => {
+      cy.get('.gallery-box>.civ-gallery').find('.civ-name').eq(16).click()
+        .get('.primaryButton').click()
+        .get('.fave-button').click()
+        .get('.primaryButton').click()
+        .get('.favorites>.civ-gallery').should('be.empty')
+    })
   })
