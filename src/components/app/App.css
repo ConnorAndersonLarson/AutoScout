@@ -14,6 +14,7 @@ main {
 
 .header {
   background-color: #D0B385;
+  border: solid 5px #8A4F11;
   /* background: "url(/icons/paper.jpg)";
   background-size: contain;
   background-position: top;
@@ -26,6 +27,7 @@ main {
   align-items: center;
   grid-area: header;
   padding-left: 25px;
+  z-index: 1;
 }
 
 .title-pic {

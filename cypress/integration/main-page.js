@@ -4,7 +4,7 @@ describe('Main Page Testing', () => {
   beforeEach(() => {
     cy.fixture('civData.json')
       .then(testCivs => {
-        cy.intercept('https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations', {
+        cy.intercept('/civilizations', {
           body: testCivs
         })
       });

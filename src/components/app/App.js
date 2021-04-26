@@ -21,6 +21,12 @@ class App extends Component {
 
   componentDidMount() {
     getCivs()
+      .then(response => {
+        if (!response.ok) {
+          throw new Error();
+        }
+        return response.json();
+      })
       .then(civs => civs.civilizations)
       .then(civs => this.setState({civs}))
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
@@ -77,7 +83,7 @@ class App extends Component {
                   </ Link>
                 </div>
                 <div className="favorites">
-                  <h3>Favorite Civs!</h3>
+                    {this.state.favorites.length !== 0 && <h3>Favorite Civs!</h3>}
                     <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
                 </div>
               </section>
@@ -85,7 +91,8 @@ class App extends Component {
                 <Route exact path ="/" render={() => {
                   return (
                     <div className="gallery-box">
-                      <Gallery civs={this.state.civs} crestClick={this.crestClick} />
+                      {!this.state.error && <Gallery civs={this.state.civs} crestClick={this.crestClick} />}
+                      {!!this.state.error && <h2 className="error">{this.state.error}</h2>}
                     </div>
                   )
                 }} />
@@ -93,7 +100,7 @@ class App extends Component {
                   const thisCiv = this.state.civs.find(civ => civ.name === match.params.name);
                   return (
                     <>
-                      {!thisCiv && <h2> Scouting for your civs...</h2>}
+                      {!thisCiv && <h2 className="error">Our scout is having difficulty finding your civ...</h2>}
                       {thisCiv &&
                       <>
                         <CompCiv info={thisCiv} base={this.state.civs} crestClick={this.crestClick} updateCiv={this.updateCiv} alterFavorites={this.alterFavorites}  />
