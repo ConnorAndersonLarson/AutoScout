@@ -12,15 +12,14 @@ main {
   height: 100%;
 }
 
+h3 {
+  text-align: center;
+}
+
 .header {
   background-color: #D0B385;
   border: solid 5px #8A4F11;
-  /* background: "url(/icons/paper.jpg)";
-  background-size: contain;
-  background-position: top;
-  background: cover; */
-  width: 100%;
-  height: 9vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -47,9 +46,9 @@ main {
 
 .footer {
   background-color: #D0B385;
-  border: solid 5px #8A4F11;
+  border-top: solid 5px #8A4F11;
   grid-area: footer;
-  height: 8vh;
+  height: auto;
   z-index: 1;
 }
 
@@ -89,4 +88,64 @@ main {
   height: auto;
   margin: 10px;
   height: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      "sidebar"
+      "gallery";
+  }
+  .header {
+    border: unset;
+    width: unset;
+  }
+  .main-page {
+    grid-template-areas:
+      "header"
+      "main"
+      "main";
+  }
+  .footer {
+    visibility: hidden;
+  }
+  .info-column {
+    height: auto;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+  }
+  .primaryButton {
+    width: 90%;
+    height: 10vh;
+    align-self: center;
+  }
+  .favorites {
+    height: 100%;
+    width: 40%;
+    align-self: flex-start;
+    overflow: scroll;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .info-column {
+    width: 100%;
+    flex-flow: column-reverse;
+    height: fit-content;
+  }
+  .primaryButton {
+    width: 90vw;
+    height: 5vh;
+  }
+  .favorites {
+    width: 100%;
+  }
+  .gallery-box {
+    overflow:unset;
+    border:unset;
+  }
 }

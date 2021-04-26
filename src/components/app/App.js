@@ -74,14 +74,14 @@ class App extends Component {
         </header>
           <main>
               <section className="info-column">
-                <div>
+
                   {!!this.state.civ && <CivInfo props={this.state.civ} /> }
-                </div>
-                <div>
+
+
                   <Link to={`/${this.state.civId}`}>
                     {!!this.state.civ && <button className="primaryButton" onClick={ this.changePage }>{this.state.civId ? `Inspect ${this.state.civId}!` : 'Return Home!'}</button> }
                   </ Link>
-                </div>
+                
                 <div className="favorites">
                     {this.state.favorites.length !== 0 && <h3>Favorite Civs!</h3>}
                     <Gallery civs={this.state.favorites} crestClick={this.crestClick}/>
