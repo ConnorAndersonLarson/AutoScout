@@ -30,6 +30,7 @@ class App extends Component {
       .then(civs => civs.civilizations)
       .then(civs => this.setState({civs: this.cleanData(civs)}))
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
+    this.setState({favorites: (JSON.parse(localStorage.getItem('favorites')) || [])})
   }
 
   cleanData = (data) => {
@@ -70,9 +71,11 @@ class App extends Component {
     let faveFind = this.state.favorites.find(civ => civ.id === thisCiv.id)
     if (!faveFind) {
       this.setState(prevState => ({favorites: [...prevState.favorites, thisCiv]}))
+      localStorage.setItem(`favorites`, JSON.stringify([...this.state.favorites, thisCiv]));
     } else {
       let unFave = this.state.favorites.filter(civ => civ.id !== thisCiv.id)
       this.setState({favorites: unFave})
+      localStorage.setItem(`favorites`, JSON.stringify(unFave));
     }
   }
 
