@@ -3,13 +3,13 @@ describe('API-Testing', () => {
 
   it('Should successfully GET civs from API', () => {
     cy.visit(baseURL)
-      .get('.gallery-box').get('.civ-name').should('have.length', 32)
+      .get('.gallery-box').get('.civ-name').should('have.length', 30)
       .get('.civ-name').eq(0).should('contain', 'Aztecs')
       .get('.civ-name').eq(5).should('contain', 'Franks')
       .get('.civ-name').eq(13).should('contain', 'Saracens')
       .get('.civ-name').eq(18).should('contain', 'Berbers')
-      .get('.civ-name').eq(22).should('contain', 'Incas')
-      .get('.civ-name').eq(28).should('contain', 'Malians')
+      .get('.civ-name').eq(21).should('contain', 'Incas')
+      .get('.civ-name').eq(26).should('contain', 'Malians')
   })
   it('Should show an error message on failed load', () => {
     cy.intercept({
