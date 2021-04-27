@@ -28,12 +28,13 @@ class App extends Component {
         return response.json();
       })
       .then(civs => civs.civilizations)
-      .then(civs => this.setState({civs: this.cleanData(civs)}))
+      .then(civs => this.setState({civs: this.removeDuplicates(civs)}, console.log(this.state.civs) ))
       .catch(err => this.setState({ error: 'Our scouts cannot find any civs...' }))
     this.setState({favorites: (JSON.parse(localStorage.getItem('favorites')) || [])})
   }
 
   cleanData = (data) => {
+    console.log(this.state.civs)
     return data.map(block => {
       return {
         id: block.id,
@@ -42,8 +43,21 @@ class App extends Component {
         army_type: block.army_type,
         team_bonus: block.team_bonus,
         civilization_bonus: block.civilization_bonus
-  }
+      }
     })
+  }
+
+  removeDuplicates = (data) => {
+    const civs = [...data]
+    const noDupes = civs.reduce((acc, block) => {
+      const x = acc.find(item => item.name === block.name);
+      if (!x) {
+        return acc.concat([block]);
+      } else {
+        return acc;
+      }
+    }, []);
+    return this.cleanData(noDupes)
   }
 
   crestClick = (civId) => {

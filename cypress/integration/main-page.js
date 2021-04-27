@@ -22,7 +22,7 @@ describe('Main Page Testing', () => {
       })
   })
   it('Should have numerous civs displayed', () => {
-    cy.get('.gallery-box').get('.civ-name').should('have.length', 32)
+    cy.get('.gallery-box').get('.civ-name').should('have.length', 30)
     cy.get('.crest').eq(1).should('exist')
     cy.get('.crest').eq(6).should('exist')
     cy.get('.crest').eq(14).should('exist')
@@ -36,8 +36,8 @@ describe('Main Page Testing', () => {
     cy.get('.civ-name').eq(5).should('contain', 'Franks')
     cy.get('.civ-name').eq(13).should('contain', 'Saracens')
     cy.get('.civ-name').eq(18).should('contain', 'Berbers')
-    cy.get('.civ-name').eq(22).should('contain', 'Incas')
-    cy.get('.civ-name').eq(28).should('contain', 'Malians')
+    cy.get('.civ-name').eq(21).should('contain', 'Incas')
+    cy.get('.civ-name').eq(26).should('contain', 'Malians')
   })
 
   it('Should show civ data when selecting a civ', () => {
@@ -61,6 +61,6 @@ describe('Main Page Testing', () => {
   it('Should be able to return home by clicking title', () => {
     cy.get('.civ-name').eq(7).click()
       .get('.title').click()
-      .get('.gallery-box').get('.civ-name').should('have.length', 32)
+      .get('.gallery-box').get('.civ-name').should('have.length', 30)
   })
 })
