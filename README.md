@@ -54,12 +54,11 @@ This site is currently not deployed due to API issues. I will need to create a p
 <img src="https://media.giphy.com/media/jpVzX1zoRajFIQCgbE/giphy.gif" width="1440">
 
 #### Responsive Design
- - Responsiveness was a consideration while designing this application. Our application viewed from a mobile device:
+ - Responsiveness was a consideration while designing this application. The application viewed from a mobile device:
  <img src="https://media.giphy.com/media/PrwNn7IMm077NX31Lm/giphy.gif" width="500" align="center">
 
 #### Accessibility
-
-We made accessibility a priority in our application. Planet Party recieved a 100% acecessibility audit from Chrome's Lighthouse tool. Also using the Wave extension, our application has zero errors and zero contrast errors.
+ - Accessibility was a focus on this app. Passes Lighthouse and wave testing with high marks.
 <img src="https://media.giphy.com/media/CKTb0GiOBvIIzuja6v/giphy.gif" width="500" align="center">
 
 
